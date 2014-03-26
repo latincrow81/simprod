@@ -1,0 +1,11 @@
+body {
+	background-image:url('img/squairy_light.png');
+	background-color:navy;
+}
+#parent{
+	width:1024px;
+	margin:0 auto;
+	padding:20px;
+	font-family:Arial, Helvetica, sans-serif;
+	border-radius:10px;
+}

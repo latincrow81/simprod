@@ -1,0 +1,151 @@
+<!DOCTYPE HTML>
+<html>    
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Simulador de Tiempos de Producción</title>
+        <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+  		<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  		<script src="tiempos.js"></script>
+  		<script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+        <link href="style.css" rel="stylesheet" type="text/css" />
+        <script>
+  $(function() {
+    $( "#datepicker" ).datepicker();
+  });
+  </script>
+  <script>
+  	var progCur = new Date(prompt("Ingrese la fecha de entrega de programa de curso, el programa de curso es prerequisito e inicia el proceso","DD/MM/AAAA"));
+  	var fecha = progCur.toDateString();
+  	/* fecha inicio */
+  	var capacitacion = new Date(progCur);
+  	capacitacion.setDate(capacitacion.getDate() + 2);
+  	var fecha1 = capacitacion.toDateString();
+  	/* fecha capacitacion */
+  	var unidad1 = new Date(capacitacion);
+  	unidad1.setDate(unidad1.getDate()+15);
+  	var fecha2 = unidad1.toDateString();
+  	/* fecha Unidad 1 */
+  	var ajusteUni1 = new Date(unidad1);
+  	ajusteUni1.setDate(ajusteUni1.getDate()+9);
+  	var fecha3 = ajusteUni1.toDateString();
+  	/* fecha ajuste unidad 1 */
+  	var unidad2 = new Date(ajusteUni1);
+  	unidad2.setDate(unidad2.getDate()+15);
+  	var fecha4 = unidad2.toDateString();
+  	/* fecha Unidad 2 */
+  	var ajusteUni2 = new Date(unidad2);
+  	ajusteUni2.setDate(ajusteUni2.getDate()+9);
+  	var fecha5 = ajusteUni2.toDateString();
+  	/* fecha ajuste unidad 2 */
+  	var unidad3 = new Date(ajusteUni2);
+  	unidad3.setDate(unidad3.getDate()+15);
+  	var fecha6 = unidad3.toDateString();
+  	/* fecha Unidad 3 */
+  	var ajusteUni3 = new Date(ajusteUni2);
+  	ajusteUni3.setDate(ajusteUni3.getDate()+9);
+  	var fecha7 = ajusteUni3.toDateString();
+  	/* fecha ajuste unidad 3 */
+  	var actividades = new Date(ajusteUni3);
+  	actividades.setDate(actividades.getDate()+8);
+  	var fecha8 = actividades.toDateString();
+  	/* fecha actividades */
+  	var ajusteActividades = new Date(actividades);
+  	ajusteActividades.setDate(ajusteActividades.getDate()+4);
+  	var fecha9 = ajusteActividades.toDateString();
+  	/* fecha ajuste actividades */
+ 	var noEqui = prompt("Ingrese el número de equipos de producción a asignar (Mínimo 1, máximo 3)");
+ 	var noEqui = noEqui * 1;
+ 	if (noEqui === 0){
+ 		alert("el numero de equipos debe ser diferente de 0");
+ 		var noEqui = prompt("Ingrese el número de equipos de producción a asignar (Mínimo 1, máximo 3)");
+ 	}
+ 	var produccion = new Date(ajusteActividades);
+  	produccion.setDate(produccion.getDate()+(26/noEqui));
+  	var fecha10 = produccion.toDateString();
+  	/* produccion */
+  	var integracion = new Date(produccion);
+  	integracion.setDate(integracion.getDate()+4);
+  	var fecha11 = integracion.toDateString();
+  	/* integracion */
+  	var montaje = new Date(integracion);
+  	montaje.setDate(montaje.getDate()+2);
+  	var fecha12 = montaje.toDateString();
+  	/* produccion */
+  	var entrega = new Date(montaje);
+  	entrega.setDate(entrega.getDate()+1);
+  	var fecha13 = entrega.toDateString();
+  	/* entrega */
+  	var valores = [0, 0, 3000000, 6000000];
+	var precio = valores[noEqui];
+  </script>
+  
+    </head>
+    <body>
+    	<div id="parent">
+        	<h1>Simulador de Tiempos de Producción</h1>
+        	<div class="spacer"><!-- separador --></div>
+        	<h1>fecha de inicio</h1>
+        	<script>        		
+        		document.write(fecha);
+        	</script>
+        	<h1>Capacitacion</h1>
+        	<script>        		
+        		document.write(fecha1);
+        	</script>
+        	<h1>Unidad 1</h1>
+        	<script>        		
+        		document.write(fecha2);
+        	</script>
+        	<h1>Revision Unidad 1</h1>
+        	<script>        		
+        		document.write(fecha3);
+        	</script>
+        	<h1>Unidad 2</h1>
+        	<script>        		
+        		document.write(fecha4);
+        	</script>
+        	<h1>Revision Unidad 2</h1>
+        	<script>        		
+        		document.write(fecha5);
+        	</script>
+        	<h1>Unidad 3</h1>
+        	<script>        		
+        		document.write(fecha6);
+        	</script>
+        	<h1>Revision Unidad 3</h1>
+        	<script>        		
+        		document.write(fecha7);
+        	</script>
+        	<h1>Actividades de Auto-aprendizaje</h1>
+        	<script>        		
+        		document.write(fecha8);
+        	</script>
+        	<h1>Correccion Actividades de Auto-aprendizaje</h1>
+        	<script>        		
+        		document.write(fecha9);
+        	</script>
+        	<h1>Produccion</h1>
+        	<script>        		
+        		document.write(fecha10);
+        	</script>
+        	<h1>Integracion</h1>
+        	<script>        		
+        		document.write(fecha11);
+        	</script>
+        	<h1>Montaje</h1>
+        	<script>        		
+        		document.write(fecha12);
+        	</script>
+        	<h1>Entrega</h1>
+        	<script>        		
+        		document.write(fecha13);
+        	</script>
+        	<h2>Sobrecosto de producción</h2>
+        	<script>
+        		document.write(precio);
+        	</script>
+        	
+        	<input type="button" onclick="location.reload()" value="Recalcular"/>
+        </div>
+    </body>
+</html>
